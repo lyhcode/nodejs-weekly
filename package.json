@@ -1,12 +1,14 @@
 {
-  "version": "0.0.1-6",
+  "version": "0.0.1-9",
   "private": true,
   "dependencies": {
     "express": "latest",
     "jade": "latest",
     "stylus": "latest",
     "bootstrap-stylus": "latest",
-    "nib": "latest"
+    "nib": "latest",
+    "canvas": "latest",
+    "github": "latest"
   },
   "scripts": {
     "start": "app.js"
@@ -15,5 +17,9 @@
     "node": "0.6.x"
   },
   "subdomain": "nodejsweekly",
+  "domains": [
+    "nodejsweekly.com",
+    "www.nodejsweekly.com"
+  ],
   "name": "nodejs-weekly"
 }

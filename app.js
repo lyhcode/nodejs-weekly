@@ -4,7 +4,7 @@ Module dependencies.
 */
 
 (function() {
-  var app, bootstrap, compile, express, routes, stylus;
+  var app, bootstrap, compile, express, nib, routes, stylus;
 
   express = require('express');
 
@@ -16,8 +16,10 @@ Module dependencies.
 
   stylus = require('stylus');
 
+  nib = require('nib');
+
   compile = function(str, path) {
-    return stylus(str).set('filename', path).set('compress', true).use(bootstrap());
+    return stylus(str).set('filename', path).set('compress', true).use(bootstrap()).use(nib());
   };
 
   app.use(stylus.middleware({
@@ -30,7 +32,6 @@ Module dependencies.
     app.set('view engine', 'jade');
     app.use(express.bodyParser());
     app.use(express.methodOverride());
-    app.use(app.router);
     return app.use(express.static(__dirname + '/public'));
   });
 

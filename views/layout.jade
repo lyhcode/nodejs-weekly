@@ -1,6 +1,18 @@
 !!!
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body!= body
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(href='http://fonts.googleapis.com/css?family=Josefin+Sans', rel='stylesheet', type='text/css')
+
+    body!= body
+        #fb-root
+        script
+            (function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=175500369215845";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+ 

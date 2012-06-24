@@ -1,0 +1,2 @@
+nodejitsu:
+	jitsu deploy

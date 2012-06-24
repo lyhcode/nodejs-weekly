@@ -11,12 +11,14 @@ app = module.exports = express.createServer()
 
 bootstrap = require('bootstrap-stylus')
 stylus = require('stylus')
+nib = require('nib')
 
 compile = (str, path) ->
     stylus(str)
         .set('filename', path)
         .set('compress', true)
         .use(bootstrap())
+        .use(nib())
 
 app.use stylus.middleware(
   src: __dirname + '/public'
@@ -30,7 +32,7 @@ app.configure ->
   app.set('view engine', 'jade')
   app.use(express.bodyParser())
   app.use(express.methodOverride())
-  app.use(app.router)
+
   app.use(express.static(__dirname + '/public'))
 
 app.configure 'development', ->

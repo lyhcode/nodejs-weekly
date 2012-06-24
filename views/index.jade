@@ -1,9 +1,79 @@
-h1= title
-p Welcome to #{title}
+header.navbar.navbar-fixed-top
+    .navbar-inner
+        .container
+            a.brand(href='#') #{title}
 
-object(style="height: 390px; width: 640px")
-    param(name="movie", value="http://www.youtube.com/v/T8Ehr_V1i1U?version=3&feature=player_detailpage")
-    param(name="allowFullScreen", value="true")
-    param(name="allowScriptAccess", value="always")
-    embed(src="http://www.youtube.com/v/T8Ehr_V1i1U?version=3&feature=player_detailpage", type="application/x-shockwave-flash", allowfullscreen="true", allowScriptAccess="always", width="640", height="360")
+.container
+    h1.title The Node.js Weekly
+    p Featured videos, articls and tweets for Node.js.
 
+    .row
+        .span10.well
+            object(style="height: 390px; width: 100%")
+                param(name="movie", value="http://www.youtube.com/v/T8Ehr_V1i1U?version=3&feature=player_detailpage")
+                param(name="allowFullScreen", value="true")
+                param(name="allowScriptAccess", value="always")
+                embed(src="http://www.youtube.com/v/T8Ehr_V1i1U?version=3&feature=player_detailpage", type="application/x-shockwave-flash", allowfullscreen="true", allowScriptAccess="always", width="100%", height="360")
+
+        .span5
+            script(charset="utf-8", src="http://widgets.twimg.com/j/2/widget.js")
+            script
+                new TWTR.Widget({
+                  version: 2,
+                  type: 'search',
+                  search: 'node.js since:2012-6-21',
+                  interval: 30000,
+                  title: 'Weekly',
+                  subject: 'Node.js Tweets',
+                  width: 'auto',
+                  height: 300,
+                  theme: {
+                    shell: {
+                      background: '#1D2326',
+                      color: '#ffffff'
+                    },
+                    tweets: {
+                      background: '#ffffff',
+                      color: '#444444',
+                      links: '#1985b5'
+                    }
+                  },
+                  features: {
+                    scrollbar: false,
+                    loop: true,
+                    live: true,
+                    behavior: 'default'
+                  }
+                }).render().start();
+
+    hr.soften
+
+    .row
+        .span4
+            div.fb-like-box(data-href="http://www.facebook.com/nodejs.tw", data-width="292", data-show-faces="false", data-stream="false", data-header="false")
+footer
+    .container
+        .row
+            .span6
+                h5 The Node.js Weekly
+                p Powered by 
+                    a(href="http://nodejs.org/") Node.js
+                p Hosting with 
+                    a(href="http://nodejitsu.com/") Nodejitsu
+
+            .span5
+                h5 Communities
+                ul
+                    li
+                        a(href='http://nodejs.tw/') Node.js Taiwan
+            
+            .span5
+                h5 Mixins
+                ul
+                    li coffescript
+                    li express
+                    li stylus (nib, bootstrap-stylus)
+                    li twitter-bootstrap
+                    li mongodb
+
+        p Copyright &copy; 2012 Node.js Weekly
